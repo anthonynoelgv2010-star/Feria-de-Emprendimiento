@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Feria de emprendimiento(Cangreburger)</title>
+
+  <!-- Fuente elegante -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --primary: #0a2342; 
+      --primary-light: #1d3a63;
+      --gold: #d4a017;
+      --bg: #f7f7f7;
+      --white: #ffffff;
+    }
+
+    body {
+      margin: 0;
+      font-family: "Poppins", sans-serif;
+      background: var(--bg);
+      color: #333;
+    }
+
+    /* HEADER ELEGANTE */
+    header {
+      background: linear-gradient(90deg, var(--primary), var(--primary-light));
+      padding: 16px 30px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      color: white;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    }
+
+    header img {
+      height: 70px;
+      border-radius: 12px;
+    }
+
+    nav a {
+      color: var(--gold);
+      text-decoration: none;
+      font-weight: 600;
+      margin: 0 20px;
+      font-size: 18px;
+      transition: 0.3s;
+    }
+
+    nav a:hover { color: #f8e3a0; }
+
+    /* SECCIONES */
+    .container {
+      max-width: 1200px;
+      margin: 40px auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      gap: 30px;
+      padding: 0 20px;
+    }
+
+    .seccion {
+      background: var(--white);
+      border-radius: 14px;
+      padding: 25px;
+      text-align: center;
+      box-shadow: 0 6px 14px rgba(0,0,0,0.10);
+      transition: .3s;
+    }
+
+    .seccion:hover {
+      transform: translateY(-4px);
+    }
+
+    .precio {
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--primary);
+    }
+
+    /* FORMULARIO */
+    form {
+      background: var(--white);
+      max-width: 750px;
+      margin: 60px auto;
+      padding: 35px;
+      border-radius: 14px;
+      box-shadow: 0 6px 14px rgba(0,0,0,0.12);
+    }
+
+    form h2 {
+      text-align: center;
+      margin-bottom: 25px;
+      color: var(--primary);
+      font-size: 28px;
+      font-weight: 700;
+    }
+
+    label {
+      display: block;
+      margin-top: 18px;
+      font-weight: 600;
+    }
+
+    input, textarea, select {
+      width: 100%;
+      padding: 12px;
+      border-radius: 8px;
+      border: 1.5px solid #ccc;
+      margin-top: 5px;
+      font-size: 16px;
+      transition: 0.3s;
+    }
+
+    button {
+      margin-top: 25px;
+      background: var(--primary);
+      color: white;
+      padding: 14px 28px;
+      border: none;
+      font-size: 18px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: 600;
+      width: 100%;
+    }
+
+    button:hover {
+      background: var(--primary-light);
+    }
+
+    .hidden { display: none; }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <img src="images/insignia.png">
+    <nav>
+      <a href="#hamburguesa">Hamburguesa</a>
+      <a href="#limonada">Limonada</a>
+      <a href="#combo">Combo</a>
+      
+    </nav>
+  </header>
+
+  <div class="container">
+
+    <div class="seccion" id="hamburguesa">
+      <h2>🍔 Cangreburger</h2>
+      <p>Hamburguesa artesanal, saludable y deliciosa.</p>
+      <img src="images/Gemini_Generated_Image_y7syn5y7syn5y7sy.png" style="width:100%;border-radius:12px;">
+      <p class="precio">S/ 10.00</p>
+    </div>
+
+    <div class="seccion" id="limonada">
+      <h2>🍋 FrescoLime</h2>
+      <p>Limonada 100% natural, refrescante y ligera.</p>
+      <img src="images/limonada.png" style="width:100%;border-radius:12px;">
+      <p class="precio">S/ 3.50</p>
+    </div>
+
+    <div class="seccion" id="combo">
+      <h2>🥤 Combo </h2>
+      <p>Hamburguesa + Limonada, la combinación perfecta.</p>
+      <img src="images/combo.png" style="width:100%;border-radius:12px;">
+      <p class="precio">S/ 12.50</p>
+    </div>
+
+    
+
+  </div>
+
+  <form id="pedidoForm">
+    <h2>📲 Realiza tu pedido</h2>
+
+    <label>Nombre:</label>
+    <input type="text" id="nombre" required>
+
+    <label>Apellido:</label>
+    <input type="text" id="apellido" required>
+
+    <label>¿Qué deseas comprar?</label>
+    <select id="tipo">
+      <option value="hamburguesa">Hamburguesa</option>
+      <option value="limonada">Limonada</option>
+    
+      <option value="combo">Combo</option>
+    </select>
+
+    <!-- HAMBURGUESA -->
+    <div id="opHamb" class="hidden">
+      <h3>🍔 Personaliza tu Hamburguesa</h3>
+      <label><input type="checkbox" value="Tomate"> Tomate</label>
+      <label><input type="checkbox" value="Queso"> Queso</label>
+      <label><input type="checkbox" value="Huevo"> Huevo</label>
+      <label><input type="checkbox" value="Mayonesa"> Mayonesa</label>
+      <label><input type="checkbox" value="Lechuga"> Lechuga</label>
+      <label><input type="checkbox" value="Papas Hilo"> Papas hilo</label>
+    </div>
+
+    <!-- LIMONADA -->
+    <div id="opLimo" class="hidden">
+      <h3>🍋 Personaliza tu Limonada</h3>
+      <label>Sabor:</label>
+      <select id="sabor">
+        <option>Fresa</option>
+        <option>Limón</option>
+        <option>Menta</option>
+      </select>
+
+      <label>Azúcar:</label>
+      <select id="azucar">
+        <option>Con azúcar</option>
+        <option>Sin azúcar</option>
+      </select>
+    </div>
+
+    <!-- PAPAS -->
+    <div id="opPapas" class="hidden">
+      <h3>🍟 Tipo de Papas</h3>
+      <select id="tipoPapas">
+        <option>Papas al hilo</option>
+        <option>Papas clásicas</option>
+      </select>
+    </div>
+
+    <!-- COMBO -->
+    <div id="opCombo" class="hidden">
+      <h3>🥤 Opciones del Combo</h3>
+
+      <label>Sabor de la limonada:</label>
+      <select id="comboSabor">
+        <option>Fresa</option>
+        <option>Limón</option>
+        <option>Menta</option>
+      </select>
+
+      <label>Crema para la hamburguesa:</label>
+      <select id="comboCrema">
+        <option>Mayonesa</option>
+        <option>Mostaza</option>
+        <option>Ketchup</option>
+      </select>
+
+      <label>Papas del combo:</label>
+      <select id="comboPapas">
+        <option>Papas al hilo</option>
+        <option>Papas clásicas</option>
+      </select>
+    </div>
+
+    <label>Detalles extra:</label>
+    <textarea id="extra"></textarea>
+
+    <button type="submit">Enviar pedido por WhatsApp</button>
+  </form>
+
+  <script>
+    const tipo = document.getElementById("tipo");
+
+    const opHamb = document.getElementById("opHamb");
+    const opLimo = document.getElementById("opLimo");
+    const opPapas = document.getElementById("opPapas");
+    const opCombo = document.getElementById("opCombo");
+
+    tipo.addEventListener("change", () => {
+      opHamb.classList.add("hidden");
+      opLimo.classList.add("hidden");
+      opPapas.classList.add("hidden");
+      opCombo.classList.add("hidden");
+
+      if (tipo.value === "hamburguesa") opHamb.classList.remove("hidden");
+      if (tipo.value === "limonada") opLimo.classList.remove("hidden");
+      if (tipo.value === "papas") opPapas.classList.remove("hidden");
+      if (tipo.value === "combo") opCombo.classList.remove("hidden");
+    });
+
+    document.getElementById("pedidoForm").addEventListener("submit", function(e){
+      e.preventDefault();
+
+      let nombre = document.getElementById("nombre").value;
+      let apellido = document.getElementById("apellido").value;
+      let seleccion = tipo.value;
+      let mensaje = `Hola, soy ${nombre} ${apellido}.%0A%0A`;
+
+      if (seleccion === "hamburguesa") {
+        let ingredientes = [];
+        document.querySelectorAll('#opHamb input:checked')
+          .forEach(i => ingredientes.push(i.value));
+        mensaje += `🍔 Pedí una Hamburguesa con: ${ingredientes.join(", ")}%0A`;
+      }
+
+      if (seleccion === "limonada") {
+        mensaje += `🍋 Pedí una Limonada (%0A- Sabor: ${document.getElementById("sabor").value}%0A- ${document.getElementById("azucar").value})%0A`;
+      }
+
+      if (seleccion === "papas") {
+        mensaje += `🍟 Pedí ${document.getElementById("tipoPapas").value}%0A`;
+      }
+
+      if (seleccion === "combo") {
+        mensaje += `🥤 Pedí un Combo:%0A`;
+        mensaje += `🍋 Limonada: ${document.getElementById("comboSabor").value}%0A`;
+        mensaje += `🍔 Hamburguesa con crema: ${document.getElementById("comboCrema").value}%0A`;
+        mensaje += `🍟 Papas: ${document.getElementById("comboPapas").value}%0A`;
+      }
+
+      mensaje += `%0A📌 Extra: ${document.getElementById("extra").value}`;
+
+      let url = `https://wa.me/51962976714?text=${mensaje}`;
+      window.open(url, "_blank");
+    });
+  </script>
+
+</body>
+</html>
